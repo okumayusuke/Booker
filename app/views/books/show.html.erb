@@ -1,3 +1,9 @@
+<% if flash[:successfull] %>
+  <div class="flash">
+    <%= flash[:successfull] %>
+  </div>
+<% end %>
+
 <h4>Title</h4>
 <%= @book.title %>
 <h4>Body</h4>

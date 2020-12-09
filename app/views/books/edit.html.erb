@@ -1,4 +1,14 @@
- <h1>編集画面</h1>
+ <h1>Editing Book</h1>
+
+ <% if @book.errors.any? %>
+   <ul>
+    <h4>2 errors prohibites this book from being saved:</h4>
+     <% @book.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+   </ul>
+ <% end %>
+
 
  <%= form_with model:@book, local:true do |f| %>
    <h4>Title</h4>
@@ -6,7 +16,7 @@
    <h4>Body</h4>
    <%= f.text_area :body %>
 
-   <%= f.submit '保存' %>
+   <%= f.submit 'Update Book' %>
 
   <%= link_to "show", book_path(@book) %>
   <%= link_to "back", books_path %>
